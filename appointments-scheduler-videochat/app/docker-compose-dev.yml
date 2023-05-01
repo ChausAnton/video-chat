@@ -1,0 +1,11 @@
+version: '3'
+services: 
+  server:
+    image: docker-videoconference-frontend
+    build: .
+    ports:
+      -  ${PORT}:${PORT}
+    command: npm run start
+    restart: on-failure
+    env_file:
+      - ./.env

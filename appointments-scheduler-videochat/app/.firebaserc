@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "appointments-system-back"
+  },
+  "targets": {
+    "appointments-system-back": {
+      "hosting": {
+        "videochat": [
+          "videochat-4351e"
+        ]
+      }
+    }
+  }
+}

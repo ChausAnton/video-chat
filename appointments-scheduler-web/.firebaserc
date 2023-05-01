@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "appointments-system-back"
+  },
+  "targets": {
+    "appointments-system-back": {
+      "hosting": {
+        "scheduler": [
+          "appointments-system-back"
+        ]
+      }
+    }
+  }
+}

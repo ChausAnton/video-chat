@@ -1,0 +1,44 @@
+$sizes: (0, 4, 8, 12, 16, 24, 32);
+$names: (
+        ma: 'margin',
+        mt: 'margin-top',
+        mr: 'margin-right',
+        mb: 'margin-bottom',
+        ml: 'margin-left',
+        pa: 'padding',
+        pt: 'padding-top',
+        pr: 'padding-right',
+        pb: 'padding-bottom',
+        pl: 'padding-left',
+);
+$coords: (
+        m: 'margin',
+        p: 'padding',
+);
+
+@each $class, $prop in $names {
+  @each $size in $sizes {
+    $i: index($sizes, $size);
+
+    .#{$class}-#{$i - 1} {
+      #{$prop}: #{$size}#{if($size == 0, '', 'px')};
+    }
+  }
+}
+
+@each $class, $prop in $coords {
+  @each $size in $sizes {
+    $i: index($sizes, $size);
+    $newSize: #{$size}#{if($size == 0, '', 'px')};
+
+    .#{$class}x-#{$i - 1} {
+      #{$prop}-right: $newSize;
+      #{$prop}-left: $newSize;
+    }
+
+    .#{$class}y-#{$i - 1} {
+      #{$prop}-top: $newSize;
+      #{$prop}-bottom: $newSize;
+    }
+  }
+}

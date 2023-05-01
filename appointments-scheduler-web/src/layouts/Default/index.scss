@@ -1,0 +1,12 @@
+.default-layout {
+  .header {
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    z-index: 50;
+
+    &__actions {
+      margin: 0 32px 0 auto;
+    }
+  }
+}

@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "555b655b-705a-4243-8092-f76553fead22",
+		"name": "appointments-system-back",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "displayName",
+									"value": "my name",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "anton2363333345312@gmail.com2345356",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "111111",
+									"type": "text"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "111111",
+									"type": "text"
+								},
+								{
+									"key": "some",
+									"value": "some",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/signUp",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"signUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCurrentUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "d.borikin@mobidev.biz",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/getCurrentUser",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"getCurrentUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "event",
+			"item": [
+				{
+					"name": "createEvent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"some title\",\n    \"location\": \"some location\",\n    \"status\": \"public\",\n    \"startDate\": \"2022-03-31T15:45:03.385Z\",\n    \"endDate\": \"2022-03-31T16:47:03.385Z\",\n    \"image\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Finfoplaytechnologies.com%2Fevent%2Fstandard-event-no-rsvp-or-tickets%2F&psig=AOvVaw3-SBS-10mW0wa2ZZncZidD&ust=1648553421291000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLDhi5va6PYCFQAAAAAdAAAAABAD\",\n    \"description\": \"some description\",\n    \"users\": [\"georgesavr6@gmail.com\", \"chausanton6@gmail.com\", \"georgesavr6@gmail.com\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/createEvent",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"createEvent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEvent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"some new212424545\",\n    \"status\": \"private\",\n    \"users\": [\"user@gmail.com\", \"user2@gmail.com\", \"georgesavr6@gmail.com\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/updateEvent?eventId=X089daHfA7JOlqxxJUgE",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"updateEvent"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "X089daHfA7JOlqxxJUgE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subscribeForEvent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/subscribeForEvent?eventId=DiFDuKnzYNoUCvitw6W2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"subscribeForEvent"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "DiFDuKnzYNoUCvitw6W2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unsubscribeForEvent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"georgesavr6@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/unsubscribeForEvent?eventId=X089daHfA7JOlqxxJUgE",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"unsubscribeForEvent"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "X089daHfA7JOlqxxJUgE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/deleteEvent?eventId=DiFDuKnzYNoUCvitw6W2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"deleteEvent"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "DiFDuKnzYNoUCvitw6W2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get event",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/getEvent?eventId=3vHP1AXnPZjv7AAEiO2k",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"getEvent"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "3vHP1AXnPZjv7AAEiO2k"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllEvents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/getEvents?page=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"getEvents"
+							],
+							"query": [
+								{
+									"key": "eventId",
+									"value": "3vHP1AXnPZjv7AAEiO2k",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

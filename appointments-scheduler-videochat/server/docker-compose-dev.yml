@@ -1,0 +1,13 @@
+version: '3'
+services:
+  server:
+    image: docker-videoconference-backend
+    build: .
+    ports:
+      -  ${PROTOO_LISTEN_PORT}:${PROTOO_LISTEN_PORT}/tcp
+      -  ${MEDIASOUP_MIN_PORT}-${MEDIASOUP_MAX_PORT}:${MEDIASOUP_MIN_PORT}-${MEDIASOUP_MAX_PORT}/udp
+      -  ${MEDIASOUP_MIN_PORT}-${MEDIASOUP_MAX_PORT}:${MEDIASOUP_MIN_PORT}-${MEDIASOUP_MAX_PORT}/tcp
+    command: npm run start
+    restart: on-failure
+    env_file:
+      - ./.env
